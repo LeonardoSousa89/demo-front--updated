@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+/*button colors group*/
+*, html, body {
+  margin: 0; }
+
+body {
+  font-family: 'Bebas Neue', cursive;
+  background: #192C54;
+  color: white;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw; }
+  body .container {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 15% 80% 5%;
+    grid-template-areas: "hd hd" "mn mn" "ft ft"; }
+    body .container header {
+      grid-area: hd;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center; }
+      body .container header .togg-el {
+        display: none; }
+      body .container header h4 {
+        font-size: 2.5rem;
+        margin: 0 0.5em; }
+      body .container header span {
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin: 0 0.5em;
+        background-color: black;
+        height: 100%;
+        width: 15%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        transition-property: background-color, color;
+        transition-duration: 0.5s; }
+        body .container header span:hover {
+          background-color: #E9E9E9;
+          color: black;
+          cursor: pointer; }
+      @media screen and (max-device-width: 768px) {
+        body .container header {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center; }
+          body .container header .togg-el {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            line-height: 25px; }
+          body .container header span {
+            display: none; } }
+    body .container main {
+      grid-area: mn;
+      background-color: #E9E9E9;
+      color: black;
+      padding: 0.5em; }
+      body .container main .form_group {
+        height: 60%;
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: flex-start; }
+        body .container main .form_group #id {
+          padding: 0.5em;
+          outline: none;
+          border: solid 1px rgba(0, 0, 0, 0.6);
+          font-size: 1em;
+          width: 4em; }
+          body .container main .form_group #id:hover {
+            box-shadow: 0px 0px 3px #192C54; }
+        body .container main .form_group #name, body .container main .form_group #job, body .container main .form_group #salary, body .container main .form_group #sector {
+          padding: 0.5em;
+          width: 100%;
+          outline: none;
+          border: solid 1px rgba(0, 0, 0, 0.6);
+          font-size: 1em; }
+          body .container main .form_group #name:hover, body .container main .form_group #job:hover, body .container main .form_group #salary:hover, body .container main .form_group #sector:hover {
+            border: solid 1px rgba(0, 0, 0, 0.6);
+            box-shadow: 0px 0px 3px #192C54; }
+      body .container main .normal_mode, body .container main .config_mode {
+        margin-bottom: 0.5em; }
+      body .container main #send, body .container main #clear, body .container main #edition, body .container main #getId,
+      body .container main #update, body .container main #delete, body .container main #nmode {
+        padding: 0.5em;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        margin: 0 2px;
+        font-size: 1.25em;
+        cursor: pointer; }
+      body .container main #send {
+        background-color: #6593A6; }
+      body .container main #clear {
+        background-color: #BF7E04; }
+      body .container main #edition {
+        background-color: #06111C; }
+      body .container main #getId {
+        background-color: #A6BF4B; }
+      body .container main #update {
+        background-color: #58595B; }
+      body .container main #delete {
+        background-color: #BB2020; }
+      body .container main #nmode {
+        background-color: #06111C; }
+      body .container main .successsend-data, body .container main .successupdate-data, body .container main .successdelete-data {
+        width: 30%;
+        cursor: pointer;
+        background: linear-gradient(110deg, #A7D5F2 85%, #6593A6 15%);
+        padding: 1em;
+        border-top-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        text-align: center; }
+      body .container main .invalid-fields, body .container main .invalid-server {
+        width: 30%;
+        cursor: pointer;
+        color: #E7DAD1;
+        background: linear-gradient(110deg, #BB2020 85%, darkred 15%);
+        padding: 1em;
+        border-top-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        text-align: center; }
+    body .container footer {
+      grid-area: ft;
+      display: flex;
+      flex-direction: row;
+      justify-content: end;
+      align-items: flex-end; }
+      body .container footer .copy {
+        font-size: x-small;
+        padding: 0.2em; }
+    @media screen and (max-device-width: 768px) and (orientation: landscape) {
+      body .container {
+        display: none; } }

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>workers data control&reg;</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h4>Administration
+                <i class="fas fa-user-shield"></i>
+            </h4>
+            <span id="home">home</span>
+
+            <div class="togg-el">
+                <i class="fas fa-sort-down" id="tog"></i>
+                <strong class="adm">admin</strong>
+            </div>
+        </header>
+
+        <main>
+            <div class="form_group">
+                <input type="number" placeholder="id" id="id">
+                 <input type="text"   placeholder="name" id="name">
+                  <input type="text"    placeholder="job" id="job">
+                    <input type="number"  placeholder="salary" id="salary">
+                        <select id="sector"> 
+                            <option>...</option>
+                        <select>
+            </div>
+
+            <div class="normal_mode">
+                <button id="send">send</button>
+                <button id="clear">clear</button>
+                <button id="edition">edition</button>
+            </div>
+
+            <div class="config_mode">
+                <button id="getId">get id</button> 
+                <button id="update">update</button>
+                <button id="delete">delete</button>
+                <button id="nmode">normal mode</button>
+            </div>
+
+            <div class="successsend-data">
+                <strong>data send with success!</strong>
+            </div>
+
+            <div class="successupdate-data">
+                <strong>data updated with success!</strong>
+            </div>
+
+            <div class="successdelete-data">
+                <strong>data deleted with success!</strong>
+            </div>
+        
+            <div class="invalid-fields">
+                <strong>please enter with all fields data!</strong>
+            </div>
+        
+            <div class="invalid-server">
+                <strong> i'm sorry ocurred an error with the server!</strong>
+            </div>
+
+        </main>
+
+        <footer>
+            <div class="copy">
+                &copy;worker's data 2021 all rights reserved.
+            </div>
+        </footer>
+    </div>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script src="adm.js"></script>
+</body>
+</html>

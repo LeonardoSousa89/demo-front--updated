@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+* {
+  margin: 0; }
+
+body {
+  font-family: 'Bebas Neue', cursive;
+  position: relative;
+  background: #192C54;
+  color: whitesmoke;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  body .container {
+    overflow: hidden;
+    height: 60vh;
+    width: 90vw;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 1fr;
+    grid-template-areas: "image form"; }
+    @media screen and (max-device-width: 768px) {
+      body .container {
+        display: grid;
+        grid-template-columns: 55% 45%;
+        grid-template-rows: 1fr;
+        grid-template-areas: "image form"; } }
+    @media screen and (max-device-width: 729px) {
+      body .container {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 1fr;
+        grid-template-areas: "form form"; } }
+    @media screen and (max-device-width: 640px) and (orientation: landscape) {
+      body .container {
+        height: 80vh;
+        width: 90vw; } }
+    body .container .image-container {
+      grid-area: image;
+      height: 100%;
+      width: 100%; }
+      body .container .image-container .img {
+        height: 100%;
+        width: 100%;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px; }
+      @media screen and (max-device-width: 729px) {
+        body .container .image-container {
+          display: none; } }
+    body .container .form-container {
+      background-color: #E9E9E9;
+      grid-area: form;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
+      line-height: 3rem; }
+      body .container .form-container .adm-title {
+        font-size: 2.5rem;
+        color: #192C54; }
+      body .container .form-container .login-title {
+        font-size: 1.5rem;
+        color: #4C5A75; }
+      body .container .form-container .user, body .container .form-container .pass {
+        border: solid 1px rgba(0, 0, 0, 0.3);
+        width: 90%;
+        padding: 0.5rem;
+        outline: none;
+        margin: 0.2rem 0; }
+        body .container .form-container .user:hover, body .container .form-container .pass:hover {
+          border: solid 1px #141F3C;
+          box-shadow: 0px 0px 1px; }
+      body .container .form-container .enter {
+        background-color: black;
+        font-weight: bold;
+        padding: 0.5rem;
+        cursor: pointer;
+        margin-top: 0.5rem;
+        width: 94%;
+        color: whitesmoke;
+        outline: none;
+        border: none; }
+        body .container .form-container .enter:hover {
+          color: #E7DAD1; }
+      @media screen and (max-device-width: 729px) {
+        body .container .form-container {
+          border-top-left-radius: 6px;
+          border-bottom-left-radius: 6px; } }
+  body .invalid-data, body .invalid-fields, body .invalid-server {
+    display: none; }
+  body .invalid-data, body .invalid-fields, body .invalid-server {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgba(0, 0, 0, 0.8);
+    background-color: pink;
+    border: solid 1px pink;
+    border-radius: 6px;
+    padding: 0.5rem;
+    margin: 0.3rem;
+    font-size: large; }

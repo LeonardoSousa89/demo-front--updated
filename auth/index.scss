@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+$b-color:#141F3C;
+$s-color:#192C54;
+$lb-color:#4C5A75;
+$l-color:#E9E9E9;
+$c-color:#E7DAD1;
+$smoke:whitesmoke;
+$grey:#9CA1A6;
+$val:0.5em;
+$empty-val:none;
+$hidden:hidden;
+$null:0;
+$half-rem:0.5rem;
+@mixin display($scr){
+    display:$scr;
+}
+ @mixin area($areas){
+  grid-area:$areas;
+}
+ @mixin d_flex($f_display,$direction,$justify,$align){
+  display:$f_display;
+  flex-direction:$direction;
+  justify-content:$justify;
+  align-items:$align;
+}
+@mixin d_grid($g_display,$columns,$rows,$g_areas){
+  display: $g_display;
+  grid-template-columns:$columns;
+  grid-template-rows:$rows;
+  grid-template-areas:$g_areas;
+}
+@mixin size($hgt,$wdt){
+  height:$hgt;
+  width:$wdt;
+}
+@mixin f_size($font){
+  font-size:$font;
+}
+@mixin radius($bdr){
+  border-radius:$bdr; 
+}
+@mixin size($hgt,$wdt){
+  height:$hgt;
+  width:$wdt;
+}
+@mixin percent($p_vh){
+  margin:$p_vh;
+} 
+*{
+  @include percent($null);
+}
+body{
+  font-family: 'Bebas Neue', cursive;
+  position:relative;
+  background:$s-color;
+  color:$smoke;
+  @include percent($null);
+  @include size(100vh,100vw);
+  @include f_size(2rem);
+  @include d_flex(flex,column,center,center);
+    .container{
+      overflow:$hidden;
+      @include size(60vh,90vw);
+      @include d_grid(grid,60% 40%,1fr,'image form');
+        @media screen and(max-device-width:768px){
+            @include d_grid(grid,55% 45%,1fr,'image form');
+        }
+        @media screen and(max-device-width:729px){
+          @include d_grid(grid,100%,1fr,'form form');
+        }
+        @media screen and (max-device-width:640px)
+        and (orientation:landscape){
+          @include size(80vh,90vw);
+        }
+      .image-container{
+        @include area(image);
+        @include size(100%,100%);
+            .img{
+              @include size(100%,100%);
+              border-top-left-radius:6px;
+              border-bottom-left-radius:6px;
+            }
+                @media screen and(max-device-width:729px){
+                  display:none;
+                }
+      }
+      .form-container{
+        background-color:$l-color;
+        @include area(form);
+        @include size(100%,100%);
+        @include d_flex(flex,column,center,center);
+        border-top-right-radius:6px;
+        border-bottom-right-radius:6px;
+        line-height:3rem;  
+          .adm-title{
+            @include f_size(2.5rem);
+            color:$s-color;
+          }
+          .login-title{
+            @include f_size(1.5rem);
+            color:$lb-color;
+          }
+          .user,.pass{
+            border:solid 1px rgba($color: #000000, $alpha: 0.3);
+            width:90%;
+            padding:$half-rem;
+            outline:$empty-val;
+            @include percent(0.2rem 0);
+              &:hover{
+                  border:solid 1px $b-color;
+                  box-shadow: 0px 0px 1px;
+              }
+          }
+          .enter{
+            background-color:black;
+            font-weight:bold;
+            padding:$half-rem;
+            cursor:pointer;
+            margin-top:$half-rem;
+            width:94%;
+            color:$smoke;
+            outline:$empty-val;
+            border:$empty-val;
+              &:hover{  
+                color:$c-color;
+              }
+          }
+          @media screen and(max-device-width:729px){
+            border-top-left-radius:6px;
+            border-bottom-left-radius:6px;
+          }
+      }
+    }
+    .invalid-data,.invalid-fields,.invalid-server{
+      display:none;
+    }
+    .invalid-data,.invalid-fields,.invalid-server{
+      font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color:rgba($color: #000000, $alpha: 0.8);
+      background-color:pink;
+      border:solid 1px pink;
+      border-radius:6px;
+      padding:$half-rem;
+      @include percent(0.3rem);
+      @include f_size(large);
+    }
+}

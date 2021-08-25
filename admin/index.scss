@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+$b-color:#141F3C;
+$s-color:#192C54;
+$lb-color:#4C5A75;
+$l-color:#E9E9E9;
+$c-color:#E7DAD1;
+$smoke:whitesmoke;
+$grey:#9CA1A6;
+$dark:black;
+$light:white;
+$lighter:#D0D3D9;
+$val:0.5em;
+$empty-val:none;
+$hidden:hidden;
+$point:pointer;
+$center:center;
+$null:0;
+$half-rem:0.5rem;
+$half-twelve:6px;
+
+/*button colors group*/
+$primary:#6593A6;
+$secondary:#58595B;
+$alert:#BF7E04;
+$danger:#BB2020;
+$optimus:#A6BF4B;
+$prime:#A7D5F2;
+$darken:#06111C;
+
+
+@mixin display($scr){
+    display:$scr;
+}
+ @mixin area($areas){
+  grid-area:$areas;
+}
+ @mixin d_flex($f_display,$direction,$justify,$align){
+  display:$f_display;
+  flex-direction:$direction;
+  justify-content:$justify;
+  align-items:$align;
+}
+@mixin d_grid($g_display,$columns,$rows,$g_areas){
+  display:$g_display;
+  grid-template-columns:$columns;
+  grid-template-rows:$rows;
+  grid-template-areas:$g_areas;
+}
+@mixin size($hgt,$wdt){
+  height:$hgt;
+  width:$wdt;
+}
+@mixin f_size($font){
+  font-size:$font;
+}
+@mixin radius($bdr){
+  border-radius:$bdr; 
+}
+@mixin size($hgt,$wdt){
+  height:$hgt;
+  width:$wdt;
+}
+@mixin percent($p_vh){
+  margin:$p_vh;
+} 
+@function calculation($value,$factor){
+  @return ($value * $factor);
+}
+*,html,body{
+  @include percent(0);
+}
+body{
+  font-family: 'Bebas Neue', cursive;
+  background:$s-color;
+  color:$light;
+  overflow:$hidden;
+  @include size(100vh,100vw);
+    .container{
+      @include size(100vh,100vw);
+        header{
+          @include area(hd);
+          @include d_flex(flex,row,space-between,center);
+          .togg-el{
+            display:$empty-val;
+          }
+          h4{
+            @include f_size(2.5rem);
+            @include percent(0 $val);
+          }
+          span{
+            font-weight:bold;
+            @include f_size(1.2rem);
+            @include percent(0 $val);
+            background-color:$dark;
+            @include size(100%,15%);
+            @include d_flex(flex,row,center,center);
+
+            transition-property:background-color, color;
+            transition-duration:0.5s;
+              &:hover{
+                background-color:$l-color;
+                color:$dark;
+                cursor:$point;
+              }
+          }
+
+          @media screen and(max-device-width:768px){
+            @include d_flex(flex,row,space-around,center);
+            .togg-el{
+              @include d_flex(flex,column,center,center);
+              line-height:25px;
+            }
+            span{
+              display:none;
+            }
+          }
+        }
+        main{
+          @include area(mn);
+          background-color:$l-color;
+          color:$dark;
+          padding:$val;
+            .form_group{
+              @include size(60%,95%);
+              @include d_flex(flex,column,space-evenly,flex-start);
+                  #id{
+                    padding:$val;
+                    outline:$empty-val;
+                    border:solid 1px rgba($color: #000000, $alpha: 0.6);
+                    @include f_size(calculation($val,2));
+                    width:calculation($val,8);
+                        &:hover{
+                          box-shadow:0px 0px 3px $s-color;
+                        }
+                  }
+
+                  #name,#job,#salary,#sector{
+                    padding:$val;
+                    width:100%;
+                    outline:$empty-val;
+                    border:solid 1px rgba($color: #000000, $alpha: 0.6);
+                    @include f_size(calculation($val,2));  
+                        &:hover{
+                            border:solid 1px rgba($color: #000000, $alpha: 0.6);
+                            box-shadow:0px 0px 3px $s-color;
+                          }
+                  }
+            }
+            .normal_mode,.config_mode{
+              margin-bottom:$val;
+            }
+            #send,#clear,#edition,#getId,
+            #update,#delete,#nmode{
+              padding:$val;
+              color:$light;
+              border:$empty-val;
+              border-radius:$half-twelve;
+              @include percent(0 2px);
+              @include f_size(calculation($val,2.5));
+              cursor:$point;
+            }
+            #send{
+              background-color:$primary;
+            }
+            #clear{
+              background-color:$alert;
+            }
+            #edition{
+              background-color:$darken;
+            }
+            #getId{
+              background-color:$optimus;
+            }
+            #update{
+              background-color:$secondary;
+            }
+            #delete{
+              background-color:$danger;
+            }
+            #nmode{
+              background-color:$darken;
+            }
+
+            .successsend-data,.successupdate-data,.successdelete-data{
+              width:30%;
+              cursor:$point;
+              background:linear-gradient(110deg, $prime 85%, $primary 15%);
+              padding:calculation($val,2);
+              border-top-left-radius:50px;
+              border-bottom-right-radius:50px;
+              text-align:$center;
+            }
+            .invalid-fields,.invalid-server{
+              width:30%;
+              cursor:$point;
+              color:$c-color;
+              background:linear-gradient(110deg, $danger 85%, darkred 15%);
+              padding:calculation($val,2);
+              border-top-left-radius:50px;
+              border-bottom-right-radius:50px;
+              text-align:$center;
+            }
+        }
+        footer{
+          @include area(ft);
+          @include d_flex(flex,row,end,flex-end);
+            .copy{
+              @include f_size(x-small);
+              padding:0.2em;
+            }
+        }
+        @include d_grid(grid,1fr,15% 80% 5%,
+                        'hd hd'
+                        'mn mn'
+                        'ft ft');
+
+        @media screen and(max-device-width:768px)
+        and(orientation:landscape){
+            display:$empty-val;
+        }
+    }
+}
