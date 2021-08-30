@@ -267,7 +267,13 @@ $('#tog').click(function(){
 $('.adm').click(function(){
     doc.location.href = '../home/index.html'
 })
-/**
- * faça o redirecionamento do social,
- * via location.href no js mesmo.
- */
+
+
+function storage(){
+    let user = localStorage.getItem('_USER')
+    let pass = localStorage.getItem('_PASSWORD')
+    if(!user && !pass){
+        doc.location.href = '../index.html'
+    }
+}
+storage()

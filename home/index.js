@@ -16,6 +16,8 @@ $('#tog').click(function(){
 
 $('.lgt').click(function(){
     doc.location.href = '../index.html'
+    localStorage.removeItem('_USER')
+    localStorage.removeItem('_PASSWORD')
 })
 
 
@@ -26,6 +28,8 @@ $('.adm').click(function(){
 
 $('#lgt').click(function(){
     doc.location.href = '../index.html'
+    localStorage.removeItem('_USER')
+    localStorage.removeItem('_PASSWORD')
 })
 
 
@@ -158,4 +162,15 @@ function create_data(positioned,element,createObject){
     object.innerHTML = element
     positioned.insertAdjacentElement('afterbegin',object)
 }
+
+
+function storage(){
+        let user = localStorage.getItem('_USER')
+        let pass = localStorage.getItem('_PASSWORD')
+        if(!user && !pass){
+            doc.location.href = '../index.html'
+        }
+}
+storage()
+
 

@@ -26,6 +26,7 @@ $('.enter').click(function(){
                             &&
                             pass == e.password){
                             doc.location.href = 'home/index.html'
+                            storage(user,pass)
                             clear()
                         }else if(user != e.user
                             &&
@@ -70,4 +71,10 @@ function clear(){
 
     user.value = ''
     pass.value = ''
+}
+
+
+function storage(USER,PASSWORD){
+    localStorage.setItem('_USER',USER)
+    localStorage.setItem('_PASSWORD',PASSWORD)    
 }
