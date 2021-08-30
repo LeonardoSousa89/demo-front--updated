@@ -112,18 +112,12 @@ function search_table(){
     search.onkeyup  = addEventListener('keyup',()=>{
        
         if(search.value == ''){
-            doc.location.reload()
+            $('.tb_search').hide()
+            $('.tb').show()
         }else{
             $('.tb_search').show()
             $('.tb').hide()
 
-            const id_area       = doc.getElementById('idsc')
-            const name_area     = doc.getElementById('namesc')
-            const job_area      = doc.getElementById('jobsc')
-            const sector_area   = doc.getElementById('sectorsc')
-            const salary_area   = doc.getElementById('salarysc')
-        
-        
            const url = `http://localhost:3003/search/name/${search.value}`
         
            const config = {
@@ -135,19 +129,12 @@ function search_table(){
                     .then(search =>{
                         search.filter(e=>{
                                 let id = e.id 
-                                create_data(id_area,id,'ul')
-    
                                 let name = e.name.substring(0,15) 
-                                create_data(name_area,name,'ul')
-    
                                 let job = e.job.substring(0,15) 
-                                create_data(job_area,job,'ul')
-    
                                 let sector = e.sector.substring(0,15) 
-                                create_data(sector_area,sector,'ul')
-    
                                 let salary = e.salary + '$' 
-                                create_data(salary_area,salary,'ul')
+
+                                searchPeople(id,name,job,sector,salary)
                         })
                     })
                     .catch(err => console.log(err))
@@ -172,5 +159,25 @@ function storage(){
         }
 }
 storage()
+
+
+function searchPeople(id, name, job, sector, salary){
+    const id_area        = doc.getElementById('idsc')
+    const name_area      = doc.getElementById('namesc')
+    const job_area       = doc.getElementById('jobsc')
+    const sector_area    = doc.getElementById('sectorsc')
+    const salary_area    = doc.getElementById('salarysc')
+
+    search.onkeyup = function(){
+        if(search.value != ''){
+           id_area.innerHTML     = '<ul>' + id     + '</ul>'
+           name_area.innerHTML   = '<ul>' + name   + '</ul>'
+           job_area.innerHTML    = '<ul>' + job    + '</ul>'
+           sector_area.innerHTML = '<ul>' + sector + '</ul>'
+           salary_area.innerHTML = '<ul>' + salary + '</ul>'
+        }
+    }
+}
+
 
 
