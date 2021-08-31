@@ -185,6 +185,28 @@ body{
                     }
               }
           }
+
+          @media screen 
+          and(max-device-width:651px)
+          and(orientation:landscape) {
+            ul{
+              @include f_size(small);
+            }
+          }
+          @media screen 
+          and(max-device-width:533px)
+          and(orientation:landscape) {
+            ul{
+              @include f_size(x-small);
+            }
+          }
+          @media screen 
+          and(max-device-width:320px)
+          and(orientation:landscape) {
+            ul{
+              @include f_size(xx-small);
+            }
+          }
       } 
       footer{
         background-color:$dark;

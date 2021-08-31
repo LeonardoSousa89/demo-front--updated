@@ -73,7 +73,6 @@ body{
   font-family: 'Bebas Neue', cursive;
   background:$s-color;
   color:$light;
-  overflow:$hidden;
   @include size(100vh,100vw);
     .container{
       @include size(100vh,100vw);
@@ -209,14 +208,14 @@ body{
               padding:0.2em;
             }
         }
-        @include d_grid(grid,1fr,15% 80% 5%,
+        @include d_grid(grid,1fr,15% 100% 5%,
                         'hd hd'
                         'mn mn'
                         'ft ft');
 
         @media screen and(max-device-width:768px)
         and(orientation:landscape){
-            display:$empty-val;
+            @include size(120vh,100vw);
         }
     }
 }
